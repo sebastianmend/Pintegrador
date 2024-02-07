@@ -55,7 +55,7 @@ object Exporter {
 
   // Funciones para el 1er método de inserción de datos
   def generarAwayTeams(data: List[Map[String, String]]) = {
-    val sqlInsert = s"INSERT INTO awayteams(matches_away_team_id, away_team_name, away_mens_team, away_womens_team, away_region_name) VALUES('%s', '%s', %d, %d, '%s');"
+    val sqlInsert = s"INSERT INTO away_teams(matches_away_team_id, away_team_name, away_mens_team, away_womens_team, away_region_name) VALUES('%s', '%s', %d, %d, '%s');"
     val awayTeamsTuple =
       data.distinctBy(_("matches_away_team_id"))
         .map(
@@ -97,7 +97,7 @@ object Exporter {
   }
 
   def generarHomeTeams(data: List[Map[String, String]]) = {
-    val sqlInsert = s"INSERT INTO hometeams(matches_home_team_id, home_team_name, home_mens_team, home_womens_team, home_region_name) VALUES('%s', '%s', %d, %d, '%s');"
+    val sqlInsert = s"INSERT INTO home_teams(matches_home_team_id, home_team_name, home_mens_team, home_womens_team, home_region_name) VALUES('%s', '%s', %d, %d, '%s');"
     val homeTeamsTuple =
       data.distinctBy(_("matches_home_team_id"))
         .map(
