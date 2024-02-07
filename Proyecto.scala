@@ -41,7 +41,7 @@ object Exporter {
 
   }
 
-  // Metodo para el reemplazo del valor NA por 0 para columnas de tipo entero o real
+  // Metodo para el reemplazo del valor NA por 0 
   def limpiar(text: String): Double =
     if (text.equals("NA")) {
       0
@@ -91,8 +91,7 @@ object Exporter {
       .sortBy(_._1)
       .map(name => sqlInsert.format(name._1, name._2, name._3, name._4, name._5, name._6, name._7, name._8, name._9, name._10))
 
-    // Se imprime en pantalla en dos partes las instrucciones SQL puesto que la consola no muestra todos los resultados
-    // al quererlos imprimir todos a la vez
+    // Se imprime en pantalla en dos partes las instrucciones
     goalsTuple.take(goalsTuple.length / 2).foreach(println)
     goalsTuple.drop(goalsTuple.length / 2).foreach(println)
   }
