@@ -9,9 +9,7 @@ import cats.{data, *}
 import cats.effect.*
 import cats.implicits.*
 import cats.effect.unsafe.implicits.global
-
 import scala.language.postfixOps
-
 
 object Exporter {
   @main

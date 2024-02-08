@@ -72,8 +72,12 @@ object ProyectoBimestral {
     }
 
     def frecuencia(listaCapacidades: List[Int]): Int = {
-      listaCapacidades.reduceLeft(Math.max)
+      listaCapacidades
+        .groupBy(identity)
+        .maxBy(_._2.size)
+        ._1
     }
+
 
     def rango(listaCapacidades: List[Int]): Int = {
       listaCapacidades.max - listaCapacidades.min
@@ -105,7 +109,7 @@ object ProyectoBimestral {
       )
 
       // Guardar el gráfico
-      pngToFile(new File("C:\\Users\\jeana\\Desktop\\Graficas\\graficaFNCamista.png"), histogramaCamisetas.build, width = 1000)
+      pngToFile(new File("C:\\Users\\jeana\\Documents\\GitHub\\Pintegrador\\Graficas\\graficaFNCamista.png"), histogramaCamisetas.build, width = 1000)
     }
 
     graficoGenero(contentFile2)
@@ -124,7 +128,7 @@ object ProyectoBimestral {
       )
 
       // Guardar el gráfico
-      pngToFile(new File("C:\\Users\\jeana\\Desktop\\Graficas\\graficaFGenero.png"), histogramaGenero.build, width = 1000)
+      pngToFile(new File("C:\\Users\\jeana\\Documents\\GitHub\\Pintegrador\\Graficas\\graficaFGenero.png"), histogramaGenero.build, width = 1000)
     }
 
     graficoPartidosXAnio(contentFile)
@@ -143,7 +147,7 @@ object ProyectoBimestral {
       )
 
       // Guardar el gráfico
-      pngToFile(new File("C:\\Users\\jeana\\Desktop\\Graficas\\graficaFPartidos.png"), PartidosAnio.build, width = 1000)
+      pngToFile(new File("C:\\Users\\jeana\\Documents\\GitHub\\Pintegrador\\Graficas\\graficaFPartidos.png"), PartidosAnio.build, width = 1000)
     }
 
     //Graficos por lectura de la base de datos
@@ -175,7 +179,7 @@ object ProyectoBimestral {
           .main("Posiciones con mas jugadores a lo largo del tiempo")
       )
       pngToFile(
-        new File("C:\\Users\\jeana\\Desktop\\Graficas\\graficaPosicionF.png"), barPlot.build, 5000)
+        new File("C:\\Users\\jeana\\Documents\\GitHub\\Pintegrador\\Graficas\\graficaPosicionF.png"), barPlot.build, 5000)
     }
 
     graficaGolesXMinuto(golesXMinuto.transact(xa).unsafeRunSync())
@@ -194,7 +198,7 @@ object ProyectoBimestral {
       p += plot(data.map(_._1), data.map(_._2), '+')
       p.xlabel = "Minutos"
       p.ylabel = "Goles"
-      f.saveas("C:\\Users\\jeana\\Desktop\\Graficas\\graficaGolesXMinuto.png")
+      f.saveas("C:\\Users\\jeana\\Documents\\GitHub\\Pintegrador\\Graficas\\graficaGolesXMinuto.png")
     }
 
     graficaGollesXMinuto(golesTiempoExtravsMinulto.transact(xa).unsafeRunSync())
@@ -215,7 +219,7 @@ object ProyectoBimestral {
       p += plot(data.map(_._2), data.map(_._3), '+')
       p.xlabel = "goles tiempo extra"
       p.ylabel = "Goles en penales"
-      f.saveas("C:\\Users\\jeana\\Desktop\\Graficas\\graficagolesTEVSPealty.png")
+      f.saveas("C:\\Users\\jeana\\Documents\\GitHub\\Pintegrador\\Graficas\\graficagolesTEVSPealty.png")
     }
 
   }
