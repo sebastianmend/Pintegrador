@@ -26,3 +26,6 @@ provienen de la base de datos.
 Espero que las instrucciones sean lo suﬁcientemente claras para que su proyecto
 alcance las características propuestas. No olvide crear un nuevo repositorio de
 GitHub en donde ubicará el código de su proyecto (bimestral o integrador).
+
+**Integrantes:** Sebastian Mendieta y Jean Álvarez 
+
